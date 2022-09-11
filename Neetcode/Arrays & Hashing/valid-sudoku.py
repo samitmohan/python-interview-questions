@@ -19,21 +19,22 @@ Time Complexity -> Hashsets for columns, rows, and each 3x3 square, O(1) time to
 import collections
 
 def isValidSudoku(board):
-  cols = collections.defaultdict(set) # key, val = cols and set (empty for now)
-  rows= collections.defaultdict(set)
-  squares = collections.defaultdict(set) # key = (r / 3 and c / 3)
+  # key, val = cols and set (empty for now)
+  cols = collections.defaultdict(set)
+  rows = collections.defaultdict(set)
+  squares = collections.defaultdict(set)  # key = (r / 3 and c / 3)
   for r in range(9):
     for c in range(9):
       if board[r][c] == ".":
         # empty -> ignore
         continue
-      if (board[r][c] in rows[r] or board[r][c] in cols[c] or board[r][c] in squares[(r // 3, c // 3)]): # not valid
+      if (board[r][c] in rows[r] or board[r][c] in cols[c] or board[r][c] in squares[(r // 3, c // 3)]):  # not valid
         return False
       # otherwise -> add in set
       cols[c].add(board[r][c])
       rows[r].add(board[r][c])
       squares[(r // 3, c // 3)].add(board[r][c])
-  
+
   # went through all tests, it is a valid sudoku.
   return True
 
