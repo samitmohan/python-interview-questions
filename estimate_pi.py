@@ -14,11 +14,10 @@ def estimate_pi(n):
     numPoint_total += 1
   return 4 * numPoint_circle/numPoint_total
 
-
 def main():
   # more points => more accurate
   print(estimate_pi(10))
   print(estimate_pi(1000))
-  print(estimate_pi(10000000000))
+  print(estimate_pi(100000000))
 
 main()
