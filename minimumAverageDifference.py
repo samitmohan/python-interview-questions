@@ -33,4 +33,4 @@ class Solution:
                 min = abs(avg1 - avg2)
                 ans = i # index of answer
 
-        return anss
+        return ans
